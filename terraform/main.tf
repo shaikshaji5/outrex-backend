@@ -57,8 +57,8 @@ resource "aws_elastic_beanstalk_environment" "node_env" {
 # 4️⃣ Upload Node.js App Zip to S3
 resource "aws_s3_object" "node_app_zip" {
   bucket = aws_s3_bucket.eb_app_versions.bucket
-  key    = "my-node-app.zip"
-  source = "my-node-app.zip"  # Ensure this ZIP file is present in your repo
+  key    = "node-app.zip"
+  source = "node-app.zip"  # Ensure this ZIP file is present in your repo
 }
 
 # 5️⃣ Create a New EB Application Version
