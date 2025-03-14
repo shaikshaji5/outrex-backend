@@ -1,5 +1,4 @@
 
-# Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
@@ -11,13 +10,11 @@
 *.tfstate.backup
 terraform.tfstate.d/
 
-# Crash logs
+
 crash.log
 
-# Local Terraform configurations
 terraform/.terraform
 .terraform.lock.hcl
 
-# Override files (can contain secrets)
 *.tfvars
 *.tfvars.json
