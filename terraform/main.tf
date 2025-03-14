@@ -9,7 +9,7 @@ terraform {
 resource "null_resource" "zip_code" {
   provisioner "local-exec" {
     command = <<EOT
-      git archive --format=zip HEAD -o my-node-app.zip
+      git archive --format=zip HEAD -o node-app.zip
     EOT
   }
 
