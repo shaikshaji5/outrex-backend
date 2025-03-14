@@ -6,6 +6,12 @@ terraform {
     }
   }
 }
+resource "null_resource" "zip_code" {
+  provisioner "local-exec" {
+    command = "zip -r my-node-app.zip ."
+  }
+}
+
 
 provider "aws" {
   region = "us-west-2" # Change as needed
