@@ -22,8 +22,6 @@ resource "aws_s3_object" "node_app_zip" {
   bucket = aws_s3_bucket.eb_app_versions.bucket
   key    = "node-app.zip"
   source = "node-app.zip"
-
-  depends_on = [null_resource.zip_code]  # Ensure ZIP is created first
 }
 
 # 4️⃣ Create Elastic Beanstalk Application
@@ -39,7 +37,7 @@ resource "aws_elastic_beanstalk_application_version" "node_version" {
   key         = aws_s3_object.node_app_zip.key
   name        = "v1-${timestamp()}"  # Unique version name
 
-  depends_on = [aws_s3_object.node_app_zip]  # Ensure ZIP is uploaded first
+  depends_on = [aws_s3_object.node_app_zip] 
 }
 
 # 6️⃣ Deploy New Version to Elastic Beanstalk
