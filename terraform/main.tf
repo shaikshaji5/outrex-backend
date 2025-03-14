@@ -40,12 +40,17 @@ resource "aws_elastic_beanstalk_application_version" "node_version" {
 }
 
 
-# 5️⃣ Deploy the Latest Version to Elastic Beanstalk
 resource "aws_elastic_beanstalk_environment" "node_env" {
   name                = "my-node-env"
   application         = aws_elastic_beanstalk_application.node_app.name
-  solution_stack_name = "64bit Amazon Linux 2023 v6.4.3 running Node.js 18"
+  solution_stack_name = "64bit Amazon Linux 2 v3.5.2 running Node.js 18"
   version_label       = aws_elastic_beanstalk_application_version.node_version.name
+
+  setting {
+    namespace = "aws:autoscaling:launchconfiguration"
+    name      = "IamInstanceProfile"
+    value     = "elasticbeanstalk-instance-profile"
+  }
 
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
@@ -58,6 +63,8 @@ resource "aws_elastic_beanstalk_environment" "node_env" {
     name      = "EnvironmentType"
     value     = "SingleInstance"
   }
-
-  depends_on = [aws_elastic_beanstalk_application_version.node_version]  # Ensure correct version deployment
 }
+
+
+
+
