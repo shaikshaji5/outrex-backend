@@ -8,9 +8,16 @@ terraform {
 }
 resource "null_resource" "zip_code" {
   provisioner "local-exec" {
-    command = "zip -r my-node-app.zip ."
+    command = <<EOT
+      git archive --format=zip HEAD -o my-node-app.zip
+    EOT
+  }
+
+  triggers = {
+    always_run = timestamp()
   }
 }
+
 
 
 provider "aws" {
