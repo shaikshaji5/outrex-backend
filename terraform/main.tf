@@ -7,18 +7,6 @@ terraform {
   }
 }
 
-# 🛠️ 1️⃣ Create the ZIP file before deploying
-resource "null_resource" "zip_code" {
-  provisioner "local-exec" {
-    command = <<EOT
-      zip -r node-app.zip . -x "*.git*" "node_modules/*" "terraform/*" ".terraform/*" "*.tfstate" "*.tfvars"
-    EOT
-  }
-
-  triggers = {
-    always_run = timestamp()
-  }
-}
 
 provider "aws" {
   region = "us-west-2"  # Change as needed
