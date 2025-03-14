@@ -43,7 +43,7 @@ resource "aws_elastic_beanstalk_application_version" "node_version" {
 resource "aws_elastic_beanstalk_environment" "node_env" {
   name                = "my-node-env"
   application         = aws_elastic_beanstalk_application.node_app.name
-  solution_stack_name = "64bit Amazon Linux 2 v3.5.2 running Node.js 18"
+  solution_stack_name = "64bit Amazon Linux 2023 v6.4.3 running Node.js 18"
   version_label       = aws_elastic_beanstalk_application_version.node_version.name
 
   setting {
