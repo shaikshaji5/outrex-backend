@@ -10,7 +10,7 @@ terraform {
 provider "aws" {
   region = "us-west-2" 
 }
-
+//wedfgdfdf
 resource "aws_s3_bucket" "eb_app_versions" {
   bucket = "outrex-bknd-versions-bucket"
 }
