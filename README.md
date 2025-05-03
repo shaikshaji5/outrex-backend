@@ -14,8 +14,8 @@ services/
 ├── listClothes.js         # Manages clothing inventory logic
 ├── rekognition.js         # AWS Rekognition-based analysis
 ├── weatherService.js      # Weather API integration
-├── terraform/
-│   └── main.tf            # Terraform script for deploying backend
+terraform/
+└── main.tf                # Terraform script for deploying backend
 node-app.zip               # Deployment archive for AWS Lambda (if needed)
 server.js                  # Main Express server
 ```
